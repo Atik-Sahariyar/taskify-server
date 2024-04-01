@@ -15,6 +15,10 @@ const UsersSchema = new Schema({
     minlenght: [4, "User password length can be minimum 4 characters"],
     set: (v) => bcrypt.hashSync(v, bcrypt.genSaltSync(10)),
   },
+  creationTime: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 

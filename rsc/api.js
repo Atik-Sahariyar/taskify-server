@@ -1,15 +1,12 @@
 const express = require("express");
-const usersRouter = require("./routers/usersRoutes");
 const router = express.Router();
 
 // Import all routers
-const routers = [
-  require("./routers/usersRoutes"), 
-  
-];
+const usersRoutes = require("./routers/usersRoutes");
+const tasksRoutes = require("./routers/tasksRoutes");
 
-// Dynamically apply routers
-routers.forEach((route) => router.use(route));
-
+// Apply routers
+router.use(usersRoutes);
+router.use(tasksRoutes);
 
 module.exports = router;
