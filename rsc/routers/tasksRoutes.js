@@ -15,7 +15,7 @@ tasksRouter.post("/tasks", postNewTask);
 
 
 // update a task   by id;
-tasksRouter.patch("/tasks/id", updateTask);
+tasksRouter.patch("/tasks/:id", updateTask);
 
 // delete a task by id
 tasksRouter.delete("/tasks/:id", deleteTask);

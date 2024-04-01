@@ -5,8 +5,13 @@ const Tasks = require("../models/TasksModel");
 exports.getMyTasks = async (req, res) => {
   try {
     const email = req?.params?.email;
-    const result = await Tasks.find({aouthorEemail: email});
-    res.send(result)
+    const allTasks = await Tasks.find({aouthorEemail: email});
+
+    const todoTasks = allTasks?.filter((item) => item?.status === "todo");
+    const ongoingTasks = allTasks?.filter((item) => item?.status === "ongoing");
+    const completedTasks = allTasks?.filter((item) => item?.status === "completed");
+    
+    res.send({allTasks, todoTasks, ongoingTasks, completedTasks})
   } catch (error) {
     console.error("Error getting my tasks data:", error);
     res.status(500).json({ message: "Internal server error" });
