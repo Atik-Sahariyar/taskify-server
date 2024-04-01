@@ -1,16 +1,15 @@
-const { serverPort } = require("./src/secret");
-const http = require("http");
-const app = require("./app");
-const connectToDB = require("./src/config/db");
-const server = http.createServer(app);
+const express = require("express");
+const usersRouter = require("./routers/usersRoutes");
+const router = express.Router();
 
-const main = async () => {
-  await connectToDB();
-  server.listen(serverPort, () => {
-    console.log(
-      `Taskify server is running on: http://localhost:${serverPort}`
-    );
-  });
-};
+// Import all routers
+const routers = [
+  require("./routers/usersRoutes"), 
+  
+];
 
-main();
+// Dynamically apply routers
+routers.forEach((route) => router.use(route));
+
+
+module.exports = router;
