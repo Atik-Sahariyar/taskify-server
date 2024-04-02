@@ -3,9 +3,7 @@ const Users = require("../models/UsersModel");
 // create a new user controller
 exports.postUserController = async (req, res) => {
   try {
-    console.log("calling");
     const user = req.body;
-    console.log("user", user);
     const query = { email: user.email };
     const existingUser = await Users.findOne(query);
     if (existingUser) {
