@@ -5,22 +5,24 @@ const tasksRouter = express.Router();
 
 
 
+
+
 // get my tasks by email;
-tasksRouter.get("/tasks/:email", getMyTasks);
+tasksRouter.get("/tasks/:email", verifyToken, getMyTasks);
 
 // get one task by id;
-tasksRouter.get("/task/:id", getOneTask);
+tasksRouter.get("/task/:id", verifyToken, getOneTask);
 
 
 // create a new  task ;
-tasksRouter.post("/tasks", postNewTask);
+tasksRouter.post("/tasks",verifyToken, postNewTask);
 
 
 // update a task   by id;
-tasksRouter.patch("/task/:id", updateTask);
+tasksRouter.patch("/task/:id",verifyToken, updateTask);
 
 // delete a task by id
-tasksRouter.delete("/task/:id", deleteTask);
+tasksRouter.delete("/task/:id",verifyToken, deleteTask);
 
 
 module.exports = tasksRouter

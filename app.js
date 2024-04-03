@@ -43,6 +43,8 @@ app.use(bodyParser.json());
 // API routes
 app.use("/api/v1", router);
 
+
+
 // Home route
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Welcome to taskify Server" });

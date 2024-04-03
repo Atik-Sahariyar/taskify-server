@@ -4,7 +4,6 @@ require('dotenv').config();
 const verifyToken = async (req, res, next) => {
   const token = await req.cookies?.token;
   
-  console.log(req.cookies);
   if (!token) {
     return res.status(401).send({ message: 'unauthorized access' })
   }

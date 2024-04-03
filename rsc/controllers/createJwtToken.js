@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+
+
 const createJwtToken = async (req, res) => {
   try {
     const user =  req.body;
