@@ -21,7 +21,7 @@ const limiter = rateLimit({ windowMs: 60 * 60 * 1000, limit: 1000 });
 
 // CORS options
 const corsOptions = {
-  origin: ["*", "http://localhost:5173", "http://localhost:5174"],
+  origin: ["*", "http://localhost:5173", "http://localhost:5174", "https://taskify-client-rouge.vercel.app"],
   credentials: true,
   optionSuccessStatus: 200,
 };
